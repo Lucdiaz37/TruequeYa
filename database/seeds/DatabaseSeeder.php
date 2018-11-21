@@ -21,15 +21,9 @@ class DatabaseSeeder extends Seeder
         $users = factory(User::class)->times(20)->create();
         $userIds = User::all()->pluck('id')->toArray();
 
-        $products = factory(Product::class)->times(40)->create([
-            'user_id' => $users->random()->id,
-            'category_id' => $categories->random()->id
-        ]);
+        $products = factory(Product::class)->times(40)->create();
 
-        $transactions = factory(Transaction::class)->times(10)->create([
-            'user_id' => $users->random()->id,
-            'product_id' => $products->random()->id
-        ]);
+        $transactions = factory(Transaction::class)->times(10)->create();
 
 
     }
