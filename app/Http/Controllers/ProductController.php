@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -27,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create')->with('categories', Category::all());
     }
 
     /**
@@ -38,8 +39,36 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rule = [
+            'name' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'category_id' => 'required',
+            'photopath' => 'nullable',
+            'price' => 'required'
+        ];
+
+        
+        $messages = [
+            'required' => ':attribute es obligatorio'
+        ];
+
+        $this->validate($request, $rule, $messages);
+
+        $product = new Product($request->all());
+        $product->active = 1;
+        
+        if($request->file('photopath') !== null) {
+            $file = $request->file('photopath')->store('uploads');
+            $product->photopath = $file;
+        }
+        
+        $product->save();
+
+        return redirect('/products/' . $product->name);
+
     }
+    
 
     /**
      * Display the specified resource.
