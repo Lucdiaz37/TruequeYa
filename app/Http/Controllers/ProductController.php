@@ -14,7 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $limit = 9;
+
+        $products = Product::paginate($limit);
+        return view('products.index')->with('products', $products);
     }
 
     /**
@@ -44,9 +47,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($name)
     {
-        //
+        $product = Product::where('name', $name)->first();
+        return view('products.show')->with('product', $product);
     }
 
     /**
