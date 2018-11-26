@@ -1,4 +1,4 @@
-@extends('layouts.partials.navbar')
+@extends('layouts.master')
 
 @section('content')
 <div class="row">
