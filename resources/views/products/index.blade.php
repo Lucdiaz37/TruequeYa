@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.partials.navbar')
 
 @section('content')
     <header class="bg-dark text-white">

@@ -16,11 +16,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/faqs', 'FaqsController@index');
+
 Route::get('/products/create', 'ProductController@create');
 
 Route::post('/products/create', 'ProductController@store');
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/products', 'ProductController@index');
 
