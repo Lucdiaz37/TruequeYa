@@ -33,5 +33,7 @@ Route::get('/products/{id}/edit', 'ProductController@edit');
 
 Route::patch('products/{id}/edit', 'ProductController@update');
 
+Route::delete('products/delete/{id}', 'ProductController@destroy');
+
 
 

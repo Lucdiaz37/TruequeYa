@@ -67,6 +67,20 @@
                       <h5>{{ $product->location }}</h5>
                     <p class="card-text">{{ $product->description }}</p>
                         </div>
+                         @if(Auth::user()->role === 7) 
+                <div class="row">
+                    <div class="">
+                        <a href="/products/{{ $product->id }}/edit" class="btn btn-primary">Editar</a>
+                    </div>
+                    <div class="">
+                        <form action="products/delete/{{ $product->id }}" method="post">
+                            {{ csrf_field() }} 
+                            {{ method_field('delete') }}
+                            <input type="submit" class="btn btn-danger" name="delete" value="Eliminar">
+                        </form>
+                    </div>
+                </div>
+                @endif
                     </div>
                 </div>
             @endforeach
