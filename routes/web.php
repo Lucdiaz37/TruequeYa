@@ -29,5 +29,9 @@ Route::get('/products', 'ProductController@index');
 
 Route::get('/products/{name}', 'ProductController@show');
 
+Route::get('/products/{id}/edit', 'ProductController@edit');
+
+Route::patch('products/{id}/edit', 'ProductController@update');
+
 
 

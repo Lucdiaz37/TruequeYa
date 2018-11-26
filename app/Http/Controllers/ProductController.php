@@ -88,9 +88,19 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $categories = Category::all();
+
+        $product = Product::find($id);
+        
+
+
+       return view('products.edit')
+       ->with('product', $product)
+       ->with('category', $product->category)
+       ->with('categories', $categories);
+
     }
 
     /**
@@ -100,9 +110,21 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+
+        // Luego  vamos campo por campo asignando el nuevo dato o el que haya quedado en el value
+        $product->name = $request->input("name");
+        $product->description = $request->input("description");
+        $product->location = $request->input("location");
+        $product->price = $request->input("price");
+        $product->category_id = $request->input("category_id");
+        // Y aca, tambien usamos save(), porque es la misma operacion pero sobre algo que ya existe
+        $product->save();
+
+        //en este caso, redirigimos al perfil de la pelicula que editamos para observar los cambios
+        return redirect("/products/$product->name");
     }
 
     /**
