@@ -77,7 +77,7 @@
                 <input class="form-control" type="number" name="price" value="{{ old("price") }}">
             </div>
 
-            <input type="submit" class="btn btn-danger form-control col-6 offset-3">
+            <input type="submit" class="btn btn-danger form-control col-6 offset-3" value="Publicar">
         </form>
         </div>
     </div>
