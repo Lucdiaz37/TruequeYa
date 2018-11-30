@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class ProfileController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +13,10 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        $users = User::all(); 
-        return view('Profile')->with('users', $users);
+    {
+        $users = User::all();
+        return view('users.index')->with('users', $users);
     }
-    
-
 
     /**
      * Show the form for creating a new resource.
@@ -47,10 +45,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($name)
+    public function show($id)
     {
-        $user = User::where('name', $name)->first();
-        return view('profile.show')->with('user', $user);
+        $user = User::find($id);
+        return view('users.show')->with('user', $user);
     }
 
     /**

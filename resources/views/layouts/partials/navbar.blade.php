@@ -39,7 +39,7 @@
                         </li> 
         
                         <li class="nav-item">
-                            <a class="nav-link font-white" href="/profile/{{ Auth::user()->name }}">Tu perfil</a>
+                            <a class="nav-link font-white" href="/users/{{ Auth::user()->id }}">Tu perfil</a>
                         </li> 
 
                     @endguest

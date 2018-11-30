@@ -35,7 +35,9 @@ Route::patch('products/{id}/edit', 'ProductController@update');
 
 Route::delete('products/delete/{id}', 'ProductController@destroy');
 
-Route::get('/profile/{name}', 'ProfileController@show');
+Route::get('/users', 'UserController@index');
+
+Route::get('/users/{id}', 'UserController@show');
 
 
 
