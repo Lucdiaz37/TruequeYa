@@ -59,7 +59,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('users.edit')->with('user', $user)->with('email', $user->email);
     }
 
     /**
@@ -71,7 +73,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->name = $request->input("name");
+        $user->email = $request->input("email");
+
+        $user->save();
+
+        return redirect("/users/$user->id");
     }
 
     /**

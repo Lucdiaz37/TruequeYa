@@ -39,5 +39,11 @@ Route::get('/users', 'UserController@index');
 
 Route::get('/users/{id}', 'UserController@show');
 
+Route::get('/users/{id}/edit', 'UserController@edit');
+
+Route::patch('users/{id}/edit', 'UserController@update');
+
+
+
 
 
