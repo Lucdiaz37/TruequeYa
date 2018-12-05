@@ -1,4 +1,4 @@
-    <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+    <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-purple">
                 <span class="navbar-toggler-icon leftmenutrigger"></span>
                 <a class="navbar-brand" href="/home">LOGO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
