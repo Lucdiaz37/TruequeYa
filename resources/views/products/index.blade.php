@@ -34,13 +34,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="" alt="First slide">
+                <img class="d-block img-fluid" src="{{ asset('img/prod1.jpg') }}" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="" alt="Second slide">
+                <img class="d-block img-fluid" src="{{ asset('img/prod2.jpg') }}" alt="Second slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="" alt="Third slide">
+                <img class="d-block img-fluid" src="{{ asset('img/prod3.jpg') }}" alt="Third slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -59,13 +59,15 @@
                 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="" alt=""></a>
+                    <a href="/products/{{ $product->name }}">
+                      <img class="card-img-top " src="{{ asset( 'storage/' . $product->photopath)}}" alt="">
+                    </a>
                         <div class="card-body">
                         <h4 class="card-title">
                         <a href="products/{{ $product->name }}">{{ $product->name }}</a>
                         </h4>
-                      <h5>{{ $product->location }}</h5>
-                    <p class="card-text">{{ $product->description }}</p>
+                        <h5>{{ $product->location }}</h5>
+                        <p class="card-text">{{ $product->description }}</p>
                         </div>
                          @if(Auth::user()) 
                          @if(Auth::user()->role === 7)

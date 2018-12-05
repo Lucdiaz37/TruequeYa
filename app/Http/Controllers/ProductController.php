@@ -59,7 +59,7 @@ class ProductController extends Controller
         $product->active = 1;
         
         if($request->file('photopath') !== null) {
-            $file = $request->file('photopath')->store('uploads');
+            $file = $request->file('photopath')->store('uploads', 'public');
             $product->photopath = $file;
         }
         

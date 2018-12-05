@@ -19,13 +19,13 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img class="d-block w-100" src="images/img1.png" alt="">
+                    <img class="d-block w-100" src="{{ asset('img/img1.png') }}" alt="">
                     </div>
                     <div class="carousel-item">
-                    <img class="d-block w-100" src="images/img2.jpg" alt="">
+                    <img class="d-block w-100" src="{{ asset('img/img2.jpg') }}" alt="">
                     </div>
                     <div class="carousel-item">
-                    <img class="d-block w-100" src="images/img3.png" alt="">
+                    <img class="d-block w-100" src="{{ asset('img/img3.png') }}" alt="">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -56,7 +56,7 @@
                 <br>
 
                 <div>
-                    <img class="img-fluid" src="images/trueque.png" >
+                    <img class="img-fluid" src="{{ asset('img/trueque.png') }}" >
                 </div> 
 
                 <br>
