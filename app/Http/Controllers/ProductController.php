@@ -15,10 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $limit = 9;
-
-        $products = Product::paginate($limit);
-        return view('products.index')->with('products', $products);
+        return view('products.index')->with('products', Product::paginate(9));
     }
 
     /**
@@ -65,7 +62,7 @@ class ProductController extends Controller
         
         $product->save();
 
-        return redirect('/products/' . $product->name);
+        return redirect('/products/' . $product->id);
 
     }
     
@@ -76,10 +73,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($name)
+    public function show($id)
     {
-        $product = Product::where('name', $name)->first();
-        return view('products.show')->with('product', $product);
+        return view('products.show')->with('product', Product::find($id));
     }
 
     /**
@@ -90,17 +86,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::all();
-
-        $product = Product::find($id);
-        
-
-
        return view('products.edit')
-       ->with('product', $product)
-       ->with('category', $product->category)
-       ->with('categories', $categories);
-
+       ->with('product', Product::find($id))
+       ->with('category', Product::find($id)->category)
+       ->with('categories', Category::all());
     }
 
     /**

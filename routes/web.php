@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.home');
 });
 
 Auth::routes();
@@ -21,17 +21,25 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/faqs', 'FaqsController@index');
 
-Route::get('/products/create', 'ProductController@create');
+Route::group(['prefix' => 'products'], function () {
+    Route::get('', 'ProductController@index');
+    Route::get('/create', 'ProductController@create');
+    Route::post('/create', 'ProductController@store');
+    Route::delete('/delete/{id}', 'ProductController@destroy');
+    Route::get('/{id}/edit', 'ProductController@edit');
+    Route::patch('/{id}/edit', 'ProductController@update');
+    Route::get('/{id}', 'ProductController@show');
+});
 
-Route::post('/products/create', 'ProductController@store');
 
-Route::get('/products', 'ProductController@index');
 
-Route::get('/products/{name}', 'ProductController@show');
 
-Route::get('/products/{id}/edit', 'ProductController@edit');
 
-Route::patch('products/{id}/edit', 'ProductController@update');
+
+
+
+
+
 
 Route::delete('products/delete/{id}', 'ProductController@destroy');
 
