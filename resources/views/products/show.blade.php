@@ -6,11 +6,11 @@
             <br>
             <br>
             <div class="card">
-                <a href="#"><img class="card-img-top" src="{{ asset( 'storage/' . $product->photopath)}}" alt=""></a>
+                <img class="card-img-top" src="{{ asset( 'storage/' . $product->photopath)}}" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">
-                    <a href="#">{{ $product->name }}</a>
-                </h4>
+                    <h3 class="card-title">
+                    {{ $product->name }}
+                </h3>
                 <h5>{{ $product->location }}</h5>
                 <p class="card-text">{{ $product->description }}</p>
             <h5>Precio Estimado ${{ $product->price }}</h5>

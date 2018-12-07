@@ -34,15 +34,6 @@ Route::group(['prefix' => 'products'], function () {
 
 
 
-
-
-
-
-
-
-
-Route::delete('products/delete/{id}', 'ProductController@destroy');
-
 Route::get('/users', 'UserController@index');
 
 Route::get('/users/{id}', 'UserController@show');

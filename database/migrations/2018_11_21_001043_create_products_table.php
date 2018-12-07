@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class CreateProductsTable extends Migration
 {
     /**
@@ -22,8 +23,9 @@ class CreateProductsTable extends Migration
             $table->string('photopath')->nullable();
             $table->integer('price');
             $table->unsignedInteger('user_id');
-            $table->boolean('active');
+            $table->softDeletes();
             $table->timestamps();
+            
 
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('user_id')->references('id')->on('users');

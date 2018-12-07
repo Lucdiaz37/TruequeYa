@@ -1,6 +1,6 @@
     <nav class="navbar navbar-expand-lg bg-purple fixed-top">
                 <img class="logo" href="/home" src="{{ asset('img/logo.png') }}">
-                <a class="navbar-brand font-white" href="home">TruequeYa</a>
+                <a class="navbar-brand font-white" href="/home">TruequeYa</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
                   aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
