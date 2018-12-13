@@ -53,7 +53,6 @@ class ProductController extends Controller
         $this->validate($request, $rule, $messages);
 
         $product = new Product($request->all());
-        $product->active = 1;
         
         if($request->file('photopath') !== null) {
             $file = $request->file('photopath')->store('uploads', 'public');

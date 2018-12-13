@@ -12,6 +12,5 @@ $factory->define(App\Product::class, function (Faker $faker) {
         'category_id' => $faker->randomElement(Category::pluck('id')->toArray()),
         'price' => $faker->numberBetween($min = 10, $max = 1000),
         'user_id' => $faker->randomElement(User::pluck('id')->toArray()),
-        'active' => true
     ];
 });
