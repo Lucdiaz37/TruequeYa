@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        
+        return view('backoffice.categories')->with('categories', Category::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.categoryCreate');
     }
 
     /**
@@ -35,7 +35,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rule = [
+            'name' => 'required'
+        ];
+
+        
+        $messages = [
+            'required' => 'Nombre es obligatorio'
+        ];
+
+        $this->validate($request, $rule, $messages);
+
+        $category = new Category($request->all());
+
+        $category->save();
+
+        return redirect('/backoffice/categories/');
     }
 
     /**
@@ -82,8 +97,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        Category::destroy($id);
+        return redirect('/backoffice/categories');
     }
 }

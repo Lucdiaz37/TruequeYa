@@ -77,7 +77,7 @@
                         <p class="card-text">{{ $product->description }}</p>
                         </div>
                          @if(Auth::user()) 
-                         @if(Auth::user()->role === 7)
+                         @if(Auth::user()->role === 4)
                 <div class="row">
                     <div class="">
                         <a href="/products/{{ $product->id }}/edit" class="btn btn-primary">Editar</a>

@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index')->with('users', User::all());
+        return view('backoffice.users')->with('users', User::all());
     }
 
     /**
@@ -87,6 +87,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('/backoffice/users');
     }
 }

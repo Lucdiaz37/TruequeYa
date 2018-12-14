@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/faqs', 'FaqsController@index');
 
-Route::group(['prefix' => 'products'], function () {
+Route::group(['prefix' => 'products', 'middleware' => ['auth']], function () {
     Route::get('', 'ProductController@index');
     Route::get('/create', 'ProductController@create');
     Route::post('/create', 'ProductController@store');
@@ -32,8 +32,6 @@ Route::group(['prefix' => 'products'], function () {
 });
 
 
-Route::get('/users', 'UserController@index');
-
 Route::get('/users/{id}', 'UserController@show');
 
 Route::get('/users/{id}/edit', 'UserController@edit');
@@ -43,13 +41,22 @@ Route::patch('users/{id}/edit', 'UserController@update');
 
 Route::group(['prefix' => 'backoffice',  'middleware' => ['auth', 'checkrole']], function () {
     Route::get('/', 'BackofficeController@index');
+    Route::get('/users', 'UserController@index');
+    Route::delete('/user/delete/{id}', 'UserController@destroy');
+    Route::get('/categories', 'CategoryController@index');
+    Route::delete('/category/delete/{id}', 'CategoryController@destroy');
+    Route::get('category/create', 'CategoryController@create');
+    Route::post('category/create', 'CategoryController@store');
+
+
+
 });
-
-
 
 Route::get('/category', 'CategoryController@index');
 
 Route::get('/category/{id}', 'CategoryController@show');
+
+
 
 
 
