@@ -32,11 +32,14 @@ Route::group(['prefix' => 'products', 'middleware' => ['auth']], function () {
 });
 
 
-Route::get('/users/{id}', 'UserController@show');
+Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
+    Route::get('/{id}', 'UserController@show');
+    Route::get('/{id}/edit', 'UserController@edit');
+    Route::patch('/{id}/edit', 'UserController@update');
+});
 
-Route::get('/users/{id}/edit', 'UserController@edit');
 
-Route::patch('users/{id}/edit', 'UserController@update');
+
 
 
 Route::group(['prefix' => 'backoffice',  'middleware' => ['auth', 'checkrole']], function () {
@@ -47,14 +50,8 @@ Route::group(['prefix' => 'backoffice',  'middleware' => ['auth', 'checkrole']],
     Route::delete('/category/delete/{id}', 'CategoryController@destroy');
     Route::get('category/create', 'CategoryController@create');
     Route::post('category/create', 'CategoryController@store');
-
-
-
 });
 
-Route::get('/category', 'CategoryController@index');
-
-Route::get('/category/{id}', 'CategoryController@show');
 
 
 

@@ -31,12 +31,15 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Tus Productos</a>
                                     </li>
+                                    
+                                    @if(Auth::user()->id === $user->id)
                                     <li class="nav-item">
                                         <a class="nav-link" href="/products/create">Publicar Producto Nuevo</a>
                                     </li>
                                     <li class="nav-item">
                                     <a class="nav-link" href="/users/{{$user->id}}/edit">Editar Tu Perfil</a>
                                     </li>
+                                    @endif
                                 </ul>
                                 <div class="tab-content ml-1" id="myTabContent">
                                     <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
@@ -63,9 +66,11 @@
                                     <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
                                         @foreach ($user->products as $product)
                                              <h6>Nombre del producto</h6>
-                                             <a href="/products/{{ $product->name }}">{{ $product->name }}</a>
+                                             <a href="/products/{{ $product->id }}">{{ $product->name }}</a>
                                              <h6>Descripcion</h6>
                                              {{ $product->description }} 
+
+                                             @if(Auth::user()->id === $user->id)
                                             <div class="row">
                                                     <div class="">
                                                         <a href="/products/{{ $product->id }}/edit" class="btn btn-primary">Editar</a>
@@ -78,6 +83,21 @@
                                                         </form>
                                                     </div>
                                                 </div>
+                                                @endif
+                                                @if(Auth::user()->role === 4)
+                                                <div class="row">
+                                                    <div class="">
+                                                        <a href="/products/{{ $product->id }}/edit" class="btn btn-primary">Editar</a>
+                                                    </div>
+                                                    <div class="">
+                                                        <form action="/products/delete/{{ $product->id }}" method="post">
+                                                                {{ csrf_field() }} 
+                                                                {{ method_field('delete') }}
+                                                            <input type="submit" class="btn btn-danger" name="delete" value="Eliminar">
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                @endif
                                             <hr />
                                          
                                             

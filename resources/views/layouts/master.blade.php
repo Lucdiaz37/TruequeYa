@@ -21,12 +21,12 @@
 <body>
     @include('layouts.partials.navbar')
 
-    <main class="py-4">
+    <main>
 
         @yield('content')
         
-        @include('layouts.partials.footer')
     </main>
+        @include('layouts.partials.footer')
 
     
 

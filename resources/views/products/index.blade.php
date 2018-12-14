@@ -62,7 +62,7 @@
 
           <div class="row">
 
-            @foreach ($products as $product)
+           @foreach ($products as $product)
                 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
@@ -73,6 +73,9 @@
                         <h4 class="card-title">
                         <a href="products/{{ $product->id }}">{{ $product->name }}</a>
                         </h4>
+                        
+                        <a href="users/{{ $product->user->id }}"> <h5>{{ $product->user->name }}</h5> </a>
+
                         <h5>{{ $product->location }}</h5>
                         <p class="card-text">{{ $product->description }}</p>
                         </div>
