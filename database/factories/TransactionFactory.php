@@ -7,7 +7,7 @@ use App\Product;
 $factory->define(App\Transaction::class, function (Faker $faker) {
     return [
         'user_id' => $faker->randomElement(User::pluck('id')->toArray()),
-        'product_id' => $faker->randomElement(Product::pluck('id')->toArray()),
-        'active' => true
+        'product_id' => $faker->randomElement(Product::pluck('id')->toArray())
+        
     ];
 });

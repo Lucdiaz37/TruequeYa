@@ -18,15 +18,13 @@
           <h1 class="my-4">Trueques Disponibles</h1>
           <div class="list-group">
 
-              <a href="/products/" class="list-group-item"> Todos los productos </a>
+                <a href="/products/" class="list-group-item"> Todos los productos </a>
 
-            @foreach ($categories as $category)
-            <a href="/category/{{ $category->id }}" class="list-group-item"> {{ $category->name }}</a>
-          
-                
-            @endforeach
-           
-            
+                @foreach ($categories as $category)
+                <a href="/category/{{ $category->id }}" class="list-group-item"> {{ $category->name }}</a>
+              
+                    
+                @endforeach
           </div>
 
         </div>

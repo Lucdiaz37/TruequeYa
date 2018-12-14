@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('products.index')->with('products', Product::paginate(9));
+        return view('products.index')->with('products', Product::paginate(9))->with('categories', Category::all());
+
     }
 
     /**
@@ -102,16 +103,16 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        // Luego  vamos campo por campo asignando el nuevo dato o el que haya quedado en el value
+        
         $product->name = $request->input("name");
         $product->description = $request->input("description");
         $product->location = $request->input("location");
         $product->price = $request->input("price");
         $product->category_id = $request->input("category_id");
-        // Y aca, tambien usamos save(), porque es la misma operacion pero sobre algo que ya existe
+
         $product->save();
 
-        //en este caso, redirigimos al perfil de la pelicula que editamos para observar los cambios
+        
         return redirect("/products/$product->name");
     }
 

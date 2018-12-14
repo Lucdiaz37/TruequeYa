@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         $categories = factory(Category::class)->times(10)->create();
 
         $users = factory(User::class)->times(20)->create();
-        $userIds = User::all()->pluck('id')->toArray();
 
         $products = factory(Product::class)->times(40)->create();
 

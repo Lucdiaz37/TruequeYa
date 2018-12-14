@@ -23,8 +23,8 @@ class CreateProductsTable extends Migration
             $table->string('photopath')->nullable();
             $table->integer('price');
             $table->unsignedInteger('user_id');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
             
 
             $table->foreign('category_id')->references('id')->on('categories');

@@ -32,8 +32,6 @@ Route::group(['prefix' => 'products'], function () {
 });
 
 
-
-
 Route::get('/users', 'UserController@index');
 
 Route::get('/users/{id}', 'UserController@show');
@@ -41,6 +39,17 @@ Route::get('/users/{id}', 'UserController@show');
 Route::get('/users/{id}/edit', 'UserController@edit');
 
 Route::patch('users/{id}/edit', 'UserController@update');
+
+
+Route::group(['prefix' => 'backoffice',  'middleware' => ['auth', 'checkrole']], function () {
+    Route::get('/', 'BackofficeController@index');
+});
+
+
+
+Route::get('/category', 'CategoryController@index');
+
+Route::get('/category/{id}', 'CategoryController@show');
 
 
 
