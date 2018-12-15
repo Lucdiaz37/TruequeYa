@@ -2,9 +2,7 @@
 
 @section('content')
 
-<br>
-<br>
-
+<div class="mat-4">
 <ul>
 @foreach($categories as $category)
 <li> {{ $category->name }}</li>
@@ -16,4 +14,5 @@
 
 @endforeach
 </ul>
+</div>
 @endsection

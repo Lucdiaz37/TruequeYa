@@ -1,9 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-    <header class="bg-dark text-white">
+    <header class="bg-dark text-white mt-5">
             <div class="container text-center">
-                <br>
                 <p class="lead">¡Los mejores trueques los encontras aca!</p>
             </div>
     </header>

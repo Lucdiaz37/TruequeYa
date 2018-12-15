@@ -2,10 +2,8 @@
 
 @section('content')
 
-<br>
-<br>
-
 <ul>
+    <div class="mat-4">
 @foreach($users as $user)
 <li> <a class="" href="/users/{{ $user->id }}">{{ $user->name }}</a></li>
 <form action="/backoffice/user/delete/{{ $user->id }}" method="post">
@@ -16,4 +14,5 @@
 
 @endforeach
 </ul>
+</div>
 @endsection

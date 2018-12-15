@@ -1,10 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-
-<br>
-<br>
-<div class="container">
+<div class="container mat-4">
     <div class="row">
         <div class="col-8 offset-2">
         <form class="form" action="" method="post" enctype="multipart/form-data">

@@ -1,10 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="row">
+    <div class="row mt-5">
         <div class="col-lg-4 col-md-6 mb-4">
-            <br>
-            <br>
             <div class="card">
                 <img class="card-img-top" src="{{ asset( 'storage/' . $product->photopath)}}" alt="">
                 <div class="card-body">

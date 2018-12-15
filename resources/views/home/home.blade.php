@@ -2,10 +2,8 @@
 
 @section('content')
 <!-- Header -->
-<header class="bg-dark text-white">
+<header class="bg-dark text-white mt-5">
         <div class="container text-center">
-            <br>
-            <br>
             <h2>Bienvenidos a TruequeYa</h2>
             <p class="lead">¡La plataforma online número uno de intercambios en la Argentina!</p>
         </div>
