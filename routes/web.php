@@ -39,7 +39,8 @@ Route::group(['prefix' => 'users', 'middleware' => ['auth']], function () {
 });
 
 
-
+Route::get('/category', 'CategoryController@index');
+Route::get('/category/{id}', 'CategoryController@show');
 
 
 Route::group(['prefix' => 'backoffice',  'middleware' => ['auth', 'checkrole']], function () {

@@ -1,1 +1,1 @@
-<script src= "/js/master.js"></script>
+<script src="js/master.js"></script>

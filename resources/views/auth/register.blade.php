@@ -16,7 +16,7 @@
         <div class="row justify-content-center">
             <div class="col-8 mx-auto bg-light rounded">
                 <div class="signup-form">
-                        <form id="form" method="POST" action="{{ route('register') }}">
+                        <form id="formulario" name="registerForm" method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="col-8 offset-sm-2 text-center my-3">
@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input id="name" type="text" placeholder="Nombre y Apellido" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" placeholder="Nombre y Apellido" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required>
                                 <div class="col-md-6">
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">

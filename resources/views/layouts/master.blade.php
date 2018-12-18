@@ -28,6 +28,7 @@
     </main>
         @include('layouts.partials.footer')
 
-    
 
 </body>
+
+@include('layouts.partials.script')
