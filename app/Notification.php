@@ -12,4 +12,14 @@ class Notification extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    function findSender($id)
+    {
+        return User::find($id);
+    }
+
+    function findProduct($id)
+    {
+        return Product::find($id);
+    }
 }

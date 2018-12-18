@@ -13,9 +13,13 @@
                 <p class="card-text">{{ $product->description }}</p>
             <h5>Precio Estimado ${{ $product->price }}</h5>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-md btn-block bg-purple font-white">Solicitar Trueque</button>
-                </div>
+                <form class="form" action="/solicitudes/product/{{ $product->id }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" name="recipient_id" id="" value="{{ $product->user->id }}" hidden>
+                    <input type="text" name="sender_id" id="" value="{{ auth()->user()->id }}" hidden>
+                    <input type="text" name="product_id" id="" value="{{ $product->id }}" hidden>
+                    <input type="submit" class="btn btn-md btn-block bg-purple font-white" value="Solicitar Trueque">
+                </form>
             </div>
         </div>
   </div>

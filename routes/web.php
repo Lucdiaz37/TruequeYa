@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/faqs', 'FaqsController@index');
 
+Route::post('/solicitudes/product/{id}', 'NotificationController@store');
+
 Route::group(['prefix' => 'products', 'middleware' => ['auth']], function () {
     Route::get('', 'ProductController@index');
     Route::get('/create', 'ProductController@create');

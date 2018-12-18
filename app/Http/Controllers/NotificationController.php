@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
 use App\Notification;
+use Illuminate\Http\Request;
 
-class UserController extends Controller
+class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('backoffice.users')->with('users', User::all());
+        //
     }
 
     /**
@@ -36,63 +35,55 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $notification = new Notification($request->all());
+
+        $notification->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Notification $notification)
     {
-        
-        return view('users.show')
-            ->with('user', User::find($id))
-            ->with('notifications', Notification::where('recipient_id', auth()->user()->id)->get());
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Notification $notification)
     {
-        return view('users.edit')->with('user', User::find($id))->with('email', User::find($id)->email);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Notification $notification)
     {
-        $user = User::find($id);
-
-        $user->name = $request->input("name");
-        $user->email = $request->input("email");
-
-        $user->save();
-
-        return redirect("/users/$user->id");
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Notification $notification)
     {
-        User::destroy($id);
-        return redirect('/backoffice/users');
+        //
     }
 }

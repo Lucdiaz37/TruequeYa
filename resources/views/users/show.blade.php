@@ -29,6 +29,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Tus Productos</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="notifications-tab" data-toggle="tab" href="#notifications" role="tab" aria-controls="notifications" aria-selected="false">Tus Notificaciones</a>
+                                    </li>
                                     
                                     @if(Auth::user()->id === $user->id)
                                     <li class="nav-item">
@@ -100,6 +103,24 @@
                                          
                                             
                                         @endforeach
+                                    </div>
+                                    <div class="tab-pane fade show active" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
+                                        
+                                        <div class="row">
+                                           <div class="col-sm-3 col-md-2 col-5">
+                                               <label style="font-weight:bold;">Todas las notificaciones</label>
+                                           </div>
+                                           
+                                       <hr />
+                                        <div class="row">
+    
+                                            @foreach ($notifications as $notification)
+                                                
+                                                <div class="alert alert-success">
+                                                    <h6>Tienes una solicitud de trueque de {{ $notification->findSender($notification->sender_id)->name }} por el producto {{ $notification->findProduct($notification->product_id)->name }}</h6>
+                                            @endforeach
+                                       </div>
+                                       <hr />
                                     </div>
                                 </div>
                             </div>
