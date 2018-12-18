@@ -71,7 +71,7 @@
                                              <h6>Descripcion</h6>
                                              {{ $product->description }} 
 
-                                             @if(Auth::user()->id === $user->id)
+                                             @if(Auth::user()->id === $user->id || Auth::user()->role === 4))
                                             <div class="row">
                                                     <div class="">
                                                         <a href="/products/{{ $product->id }}/edit" class="btn btn-primary">Editar</a>
@@ -85,20 +85,7 @@
                                                     </div>
                                                 </div>
                                                 @endif
-                                                @if(Auth::user()->role === 4)
-                                                <div class="row">
-                                                    <div class="">
-                                                        <a href="/products/{{ $product->id }}/edit" class="btn btn-primary">Editar</a>
-                                                    </div>
-                                                    <div class="">
-                                                        <form action="/products/delete/{{ $product->id }}" method="post">
-                                                                {{ csrf_field() }} 
-                                                                {{ method_field('delete') }}
-                                                            <input type="submit" class="btn btn-danger" name="delete" value="Eliminar">
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                @endif
+                                                
                                             <hr />
                                          
                                             
