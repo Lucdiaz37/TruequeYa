@@ -1,36 +1,33 @@
 window.onload=function(){
-     let formulario = document.querySelector("#formulario")
-    formulario.elements.email.focus()
-    //console.log(formulario)
-    formulario.onsubmit=function(evento){
-        if(!validaciones()){
-            evento.preventDefault()
-        }else{
-            formulario.submit()
+        let formulario = document.querySelector("#formulario")
+        formulario.elements.name.focus()
+   
+        formulario.onsubmit=function(evento){
+             if(!validaciones()){
+                evento.preventDefault()
+                }else{
+                formulario.submit()
+            }
         }
-    }
 
     function validaciones(){
         let name = formulario.elements.name
         let email = formulario.elements.email
         let password = formulario.elements.password
-        let passwordConfirm = formulario.element.passwordConfirm
+        let passwordConfirm = formulario.elements.passwordConfirm
         if(!validateName(name.value)) return false
         if(!validarEmail(email.value)) return false
         if(!validarPassword(password.value)) return false
-        if(!validarPasswordRepeat(password.value.passwordConfirm.value)) return false
+        if(!validarPasswordRepeat(password.value,passwordConfirm.value)) return false
 
         return true
     }
 
     function validarEmail(email){
         let re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/
-        // if(re.test(email)) return true
-        // swal("Error", "Debes colocar un email válido","error")
-        // return false
         let error = document.getElementById("errorEmail")
         if (!re.test(email)){
-            error.innerHTML="Debes colocar un email válido Capo...."
+            error.innerHTML="Debes colocar un email válido "
             error.setAttribute("class","alert alert-danger")
             return false
         }else{
@@ -42,10 +39,10 @@ window.onload=function(){
     }
 
     function validarPassword(password){
-       var re_pwd = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^0-9]*[0-9]).{6,}$/
-       error = document.getElementById("errorPassword")
+       let re_pwd = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^0-9]*[0-9]).{6,}$/
+       let error = document.getElementById("errorPassword")
        if (!re_pwd.test(password)){
-        error.innerHTML="Debes colocar un password válido Capo...."
+        error.innerHTML="La contraseña debe tener al menos una mayuscula, una minuscula y un numero"
         error.setAttribute("class","alert alert-danger")
         return false
        }else{
@@ -55,19 +52,23 @@ window.onload=function(){
         }
     }
 
-    function validarPasswordRepeat(password,confirm){
-        if (password === confirm) return true
-    
-        swal('Error', 'Las contraseñas no son iguales', 'error')
-        return false
+    function validarPasswordRepeat(password, passwordConfirm){
+        let error = document.getElementById("errorPasswordConfirm")
+        if (password === passwordConfirm){
+            error.innerHTML=""
+            error.removeAttribute("class","alert alert-danger")
+             return true
+        } else{
+            error.innerHTML="Las contraseñas no coinciden"
+            error.setAttribute("class","alert alert-danger")
+            return false
+        }
       }
 
       function validateName(name) {
         
         if (name==="" || name.length <= 3){
-        //otra forma de mostrar al usuario que hay un error en el campo
-        //swal('Error', 'Ingrese un nombre de usuario válido', 'error')
-          document.getElementById("error").innerHTML= "Ingrese un nombre de usuario válido"
+          document.getElementById("error").innerHTML= "Debes ingresar un nombre de usuario válido"
           document.getElementById("error").classList.add("alert-danger")
           return false
         }else{

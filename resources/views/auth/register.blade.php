@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input id="name" type="text" placeholder="Nombre y Apellido" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required>
+                                <input id="name" type="text" placeholder="Nombre y Apellido" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}">
                                 <div id="error"></div>
                                 <div class="col-md-6">
                                     @if ($errors->has('name'))
@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input id="email" type="email" placeholder="Email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" placeholder="Email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
                                 <div id="errorEmail"></div>
                                 <div class="col-md-6">
                                     @if ($errors->has('email'))
@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input id="password" type="password" placeholder="contraseña" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="password" type="password" placeholder="contraseña" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
                                 <div  id = "errorPassword"></div>
                                 <div class="col-md-6">
                                     @if ($errors->has('password'))
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="form-group">
-                                    <input id="passwordConfirm" type="password" placeholder="Confirmar Contraseña" class="form-control" name="password_confirmation" required>                                
+                                    <input id="passwordConfirm" type="password" placeholder="Confirmar Contraseña" class="form-control" name="password_confirmation">                                
                                     <div  id = "errorPasswordConfirm"></div>
                                 </div>
 
