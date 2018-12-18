@@ -26,6 +26,7 @@
 
                             <div class="form-group">
                                 <input id="name" type="text" placeholder="Nombre y Apellido" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required>
+                                <div id="error"></div>
                                 <div class="col-md-6">
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
